@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(#87e644,#6cf20c);
+    flex-wrap: wrap;
+}
+.card{
+    position: relative;
+    width: 600px;
+    height: 350px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+}
+.card .circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.card .circle::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
+    clip-path: circle(120px at center);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.card:hover .circle:before{
+    clip-path: circle(400px at center);
+    background: #0065c3;
+}
+.card img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 300px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.card:hover img{
+    left: 72%;
+    height: 500px;
+}
+.card .content{
+    position: relative;
+    width: 50%;
+    padding: 20px 20px 20px 40px;
+    transition: 0.5s;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+.card:hover .content{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+.card .content h2{
+    color: white;
+    text-transform: uppercase;
+    font-size: 2em;
+    line-height: 1em;
+    margin-bottom: 7px;
+}
+.card .content p{
+    color: white;
+}
+.card .content a{
+    position: relative;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: 700;
+}
+.card:nth-child(2):hover .circle:before{
+    clip-path: circle(400px at center);
+    background: rgba(0, 0, 0, 0.939);
+}
+
+@media (max-width:991px){
+    .card{
+        width:auto;
+        max-width: 350px;
+        align-items: flex-start;
+        margin: 13px;
+    }
+    .card:hover{
+        height: 600px;
+    }
+    .card .content{
+        width: 100%;
+        left: 0;
+        padding: 30px;
+    }
+    .card:hover img{
+        top: 70%;
+        left: 50%;
+        height: 300px;
+    }
+}
+@media (max-width:420px){
+    .card .content{
+        padding: 20px;
+    }
+}
